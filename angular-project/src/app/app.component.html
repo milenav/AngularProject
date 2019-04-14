@@ -1,10 +1,21 @@
 <!--The content below is only a placeholder and can be replaced.-->
+<mat-sidenav-container>
+  <mat-sidenav #sidenav role="navigation">
+    <app-sidenav-list (sidenavClose)="sidenav.close()"></app-sidenav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <app-header (sidenavToggle)="sidenav.toggle()"></app-header>
+    <main>
+      <router-outlet></router-outlet>
+    </main>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
 <div style="text-align:center">
   <h1>
     Welcome to {{ title }}!
   </h1>
-  <button mat-flat-button color="accent">Click me</button>
+  <button mat-raised-button color="accent">Click me</button>
 </div>
 
 
-<router-outlet></router-outlet>
