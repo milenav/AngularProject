@@ -9,13 +9,23 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/shared/nav/header/header.component';
 import { SidenavListComponent } from './components/shared/nav/sidenav-list/sidenav-list.component';
 import { HomeComponent } from './components/home/home.component';
+import { LoginComponent } from './components/auth/login/login.component';
+import { RegisterComponent } from './components/auth/register/register.component';
+import { PostDetailsComponent } from './components/posts/post-details/post-details.component';
+import { PostCreateComponent } from './components/posts/post-create/post-create.component';
+import { FooterComponent } from './components/shared/footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     SidenavListComponent,
-    HomeComponent
+    HomeComponent,
+    LoginComponent,
+    RegisterComponent,
+    PostDetailsComponent,
+    PostCreateComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

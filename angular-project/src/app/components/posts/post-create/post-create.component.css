@@ -1,0 +1,13 @@
+.example-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-self: center
+  }
+
+  mat-form-field {
+      width: 50%;
+  }
+
+  
+  
