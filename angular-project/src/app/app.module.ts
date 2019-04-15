@@ -14,6 +14,7 @@ import { RegisterComponent } from './components/auth/register/register.component
 import { PostDetailsComponent } from './components/posts/post-details/post-details.component';
 import { PostCreateComponent } from './components/posts/post-create/post-create.component';
 import { FooterComponent } from './components/shared/footer/footer.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,8 @@ import { FooterComponent } from './components/shared/footer/footer.component';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
     MaterialModule,
     FlexLayoutModule
   ],

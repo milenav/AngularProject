@@ -1,18 +1,27 @@
-<div class="example-container py-5 mb-5 mt-5">
+<div class="example-container py-5">
+  <form [formGroup]="postGreateForm">
     <mat-form-field>
-      <input matInput placeholder="Enter title"  required>
-      <mat-error></mat-error>
+      <input formControlName="title" type="text" matInput placeholder="Enter title"  required>
+      <mat-error *ngIf="postGreateForm.get('title').hasError('required')">This field is required!</mat-error>
+      <mat-error *ngIf="postGreateForm.get('title').hasError('minlength')">Title must be at least 3 symbols!</mat-error>
+      <mat-error *ngIf="postGreateForm.get('title').hasError('maxlength')">Title should not be more 23 symbols!</mat-error>
     </mat-form-field>
     <mat-form-field>
-        <input matInput placeholder="Enter author"  required>
-        <mat-error></mat-error>
-      </mat-form-field>
-      <mat-form-field>
-          <input matInput placeholder="Enter image url"  required>
-          <mat-error></mat-error>
-        </mat-form-field>
-        <mat-form-field>
-            <textarea matInput placeholder="Enter content"></textarea>
-            <mat-error></mat-error>
-          </mat-form-field>
-  </div>
+      <input formControlName="author" type="text" matInput placeholder="Enter author">
+      <mat-error *ngIf="postGreateForm.get('author').hasError('required')">This field is required!</mat-error>
+      <mat-error *ngIf="postGreateForm.get('author').hasError('minlength')">Name author must be at least 3 symbols!</mat-error>
+      <mat-error *ngIf="postGreateForm.get('author').hasError('maxlength')">Name author should not be more 23 symbols!</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input formControlName="image" type="text" matInput placeholder="Enter image url"  required>
+      <mat-error *ngIf="postGreateForm.get('image').hasError('required')">This field is required!</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <textarea formControlName="content" matInput placeholder="Enter content"></textarea>
+      <mat-error *ngIf="postGreateForm.get('content').hasError('required')">This field is required!</mat-error>
+      <mat-error *ngIf="postGreateForm.get('content').hasError('minlength')">Content must be at least 200 symbols!</mat-error>
+      <mat-error *ngIf="postGreateForm.get('content').hasError('maxlength')">Content should not be more 5000 symbols!</mat-error>
+    </mat-form-field>
+    <button [disabled]="postGreateForm.invalid" class="mt-5" mat-flat-button color="accent" type="button">Create</button>
+  </form>
+</div>

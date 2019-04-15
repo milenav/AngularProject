@@ -6,8 +6,11 @@
   }
 
   mat-form-field {
-      width: 50%;
+      width: 100%;
   }
 
-  
+  button:disabled{
+    cursor: not-allowed;
+  }
+
   
