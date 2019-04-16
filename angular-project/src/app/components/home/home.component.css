@@ -16,3 +16,13 @@
   100% {background-position: 0% 50%}
 }
 
+.py-5 {
+  color: white;
+  text-align: center;
+    overflow: hidden;
+    background: linear-gradient(-45deg, rgb(180, 147, 137), #E73C7E, #23A6D5, #23D5AB, transparent);
+    background-size: 400% 400%;
+    -webkit-animation: Gradient 15s ease infinite;
+      -moz-animation: Gradient 15s ease infinite;
+      animation: Gradient 15s ease infinite;
+}
