@@ -8,10 +8,13 @@
   <a *ngIf="!isAuth" mat-list-item routerLink="/login" (click)="onSidenavClose()">
       <mat-icon>exit_to_app</mat-icon><span class="nav-caption">Login</span>
   </a>
-  <a *ngIf="isAuth" mat-list-item routerLink="/post/create" (click)="onSidenavClose()">
-    <mat-icon>create</mat-icon><span class="nav-caption">Post</span>
-</a>
-<a *ngIf="isAuth" (click)="logout()" mat-list-item (click)="onSidenavClose()">
+  <a *ngIf="isAuth" mat-list-item routerLink="/posts/all" (click)="onSidenavClose()">
+    <mat-icon>favorite_border</mat-icon><span class="nav-caption">Blog</span>
+  </a>
+  <a *ngIf="isAuth" mat-list-item routerLink="/posts/create" (click)="onSidenavClose()">
+    <mat-icon>create</mat-icon><span class="nav-caption">Create</span>
+  </a>
+  <a *ngIf="isAuth" (click)="logout()" mat-list-item (click)="onSidenavClose()">
     <mat-icon class="exit">exit_to_app</mat-icon><span class="nav-caption">Logout</span>
-</a>
+  </a>
 </mat-nav-list>

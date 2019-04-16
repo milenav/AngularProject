@@ -1,5 +1,5 @@
 <div class="example-container py-5">
-    <form [formGroup]="postGreateForm" (ngSubmit)="displayPost()">
+    <form [formGroup]="postGreateForm" (ngSubmit)="postCreate()">
       <mat-form-field>
         <input formControlName="title" type="text" matInput placeholder="Enter title">
         <mat-error *ngIf="postGreateForm.get('title').hasError('required')">This field is required!</mat-error>
@@ -22,6 +22,6 @@
         <mat-error *ngIf="postGreateForm.get('content').hasError('minlength')">Content must be at least 200 symbols!</mat-error>
         <mat-error *ngIf="postGreateForm.get('content').hasError('maxlength')">Content should not be more 5000 symbols!</mat-error>
       </mat-form-field>
-      <button [disabled]="postGreateForm.invalid" class="mt-5" mat-flat-button color="accent" type="button">Create</button>
+      <button [disabled]="postGreateForm.invalid" class="mt-5" mat-flat-button color="accent" type="submit">Create</button>
     </form>
   </div>

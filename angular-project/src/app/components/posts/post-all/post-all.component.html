@@ -1,3 +1,20 @@
-<p>
-  post-all works!
-</p>
+<main>
+<div class="py-5">
+  <div class="container">
+    <div class="row">
+      <ng-template [ngIf]="postAll">
+      <div class="col-md-6" *ngFor="let post of postAll">
+      <img class="col-md-6 mw-100" style="height: 300px" src="{{post['image']}}" alt=""/>
+        <h1 class="mt-5 mb-2">{{ post['title'] }}</h1>
+        <h3 class="mt-5 mb-2">{{ post['author'] }}</h3>
+          <p class="lead mb-5 text-50">{{ post['content'] }}</p>
+        <a class="mb-5" [routerLink]="['/posts/details', post['_id']]" mat-flat-button color="accent" type="button">Details</a>
+      </div>
+    </ng-template>
+    </div>
+  </div>
+</div>  
+</main>
+
+
+

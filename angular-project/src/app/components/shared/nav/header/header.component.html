@@ -16,7 +16,10 @@
             <a *ngIf="!isAuth" routerLink="/login">Login</a>
         </li>
         <li>
-            <a *ngIf="isAuth" routerLink="/post">Post</a>
+            <a *ngIf="isAuth" routerLink="/posts/all">Blog</a>
+        </li>
+        <li>
+            <a *ngIf="isAuth" routerLink="/posts/create">Create</a>
         </li>
         <li>
             <a *ngIf="isAuth" (click)="logout()">Logout</a>

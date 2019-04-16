@@ -21,7 +21,6 @@ import { PostAllComponent } from './components/posts/post-all/post-all.component
 import { TokenInterceptor } from './core/interceptors/token.interceptor';
 
 
-
 @NgModule({
   declarations: [
     AppComponent,

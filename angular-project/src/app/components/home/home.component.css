@@ -26,3 +26,88 @@
       -moz-animation: Gradient 15s ease infinite;
       animation: Gradient 15s ease infinite;
 }
+
+.stem {
+  width: 20px;
+  height: 20px;
+  border-radius: 0;
+  background: #fff;
+  animation: stem 0.5s ease-in infinite;
+}
+
+@keyframes stem {
+  0% {opacity: 1;}
+  100% {opacity: 0;}
+}
+.chart {
+  position: fixed;
+  left: 30px;
+  right: 30px;
+  bottom: 30px;
+  height: 65%;
+  
+  z-index: 3;
+}
+
+.chart .chart-plot {
+  margin-bottom: 1%;  
+  text-align: center;
+  height: 65%;
+  width: 100%;
+
+  position: absolute;
+  bottom: 20px;
+
+  overflow: visible;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-evenly;
+  z-index: 30;
+}
+
+.chart .chart-plot .bar {
+  background:#fff;
+  height: 20px;
+  width: 10%;
+  transform:scaleY(0);
+  transform-origin: 0 100%;
+  animation-delay: 1s;
+
+  box-shadow: 15px 2px 0px rgba(0,0,0,0.30);
+}
+.chart .chart-plot .bar.bar-1 {height:20%;}
+.chart .chart-plot .bar.bar-2 {height:90%;}
+.chart .chart-plot .bar.bar-3 {height:45%;}
+.chart .chart-plot .bar.bar-4 {height:66%;}
+.chart .chart-plot .bar.bar-5 {height:75%;}
+.chart .chart-plot .bar.bar-6 {height:40%;}
+.chart .chart-plot .bar.bar-7 {height:100%;}
+
+.chart .axis-x {
+  background: #fff;
+  height: 4px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  animation: bar-chart-axis 1s ease-out;
+  animation-delay: 0s;
+  transform-origin: 0% 50%;
+}
+
+@keyframes bar-chart-axis { 
+  0% {width: 0;}   
+  100% {width: 100%;}  
+}
+
+.chart .chart-plot .bar { 
+  animation: bar 5s ease-in infinite; 
+  animation-delay: 1.3s; 
+}
+
+@keyframes bar { 
+  0% {transform:scaleY(0); }     
+  87% {transform:scaleY(1.06); }       
+  90% {transform:scaleY(1);}  
+  95% {transform:scaleY(1);} 
+  100% {transform:translateX(2000px);} 
+}
