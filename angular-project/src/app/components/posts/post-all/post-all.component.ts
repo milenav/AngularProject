@@ -14,15 +14,11 @@ export class PostAllComponent implements OnInit {
 
   constructor(private postService: PostService, private router: Router) { }
   allPosts: Array<Post>;
+
   ngOnInit() {
     this.postService.getAll().subscribe(data => {
       this.allPosts = data;
     })
   }
-
- /* isAuthor(post: Object) {
-    return post['_acl']['creator'] === localStorage.getItem('userId');
-  }*/
-
  
 }

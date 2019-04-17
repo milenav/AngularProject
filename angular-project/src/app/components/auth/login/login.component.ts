@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
     this.authService
     .signIn(this.loginForm.value)
     .subscribe((data) => {
-      this.router.navigate(['posts/all']);    
+      this.router.navigate(['posts']);    
     }) 
   }
 

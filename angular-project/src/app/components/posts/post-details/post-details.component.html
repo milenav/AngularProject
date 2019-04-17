@@ -1,3 +1,21 @@
-<p>
-  post-details works!
-</p>
+<main>
+    <div class="py-5">
+      <div class="container" >
+        <div class="row">
+          <div class="col-md-12">
+          <img class="col-md-6 mw-100" style="width: 100%" src="{{post['image']}}" alt=""/>
+            <h1 class="mt-5 mb-2">{{post['title']}}</h1>
+            <h4 class="mt-5 mb-2"><span>Author: {{post['author']}}</span></h4>
+              <p class="lead mb-5 text-50">{{post['content']}}</p>
+            <button class="mb-5 mr-4" mat-raised-button type="button">Back</button>
+            <button class="mb-5 mr-4" mat-raised-button color="primary" type="button">Edit</button>
+            <button class="mb-5" mat-raised-button color="warn" type="button">Delete</button>
+          </div>
+        </div>
+      </div>
+    </div>  
+    </main>
+    
+    
+    
+    

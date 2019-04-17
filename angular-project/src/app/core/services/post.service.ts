@@ -22,7 +22,7 @@ export class PostService {
     return this.http.post(this.CREATE_POST, body);
   }
 
-  getDetails(id: string) {
+  getDetails(id: string): Observable<Post> {
     return this.http.get<Post>(this.CREATE_POST + `/${id}`);
   }
 
