@@ -24,7 +24,7 @@ export class PostCreateComponent implements OnInit {
 
   postCreate() {
     this.postService.createPost(this.postGreateForm.value).subscribe((data) => {
-      this.router.navigate(['/posts/all'])
+      this.router.navigate(['/posts'])
     })
   }
 

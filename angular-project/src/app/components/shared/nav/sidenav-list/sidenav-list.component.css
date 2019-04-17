@@ -16,3 +16,10 @@ a:hover, a:active{
     transform: rotate(180deg)
 }
 
+.mat-nav-list {
+    height: 100%;
+}
+
+#profile {
+    color: blue;
+}

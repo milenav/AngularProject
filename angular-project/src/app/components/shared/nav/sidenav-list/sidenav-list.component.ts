@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 })
 export class SidenavListComponent implements OnInit, DoCheck {
   isAuth: boolean;
+  username: string = '';
 
   @Output() sidenavClose = new EventEmitter<void>();
 
@@ -20,6 +21,7 @@ export class SidenavListComponent implements OnInit, DoCheck {
 
 ngDoCheck() {
   this.isAuth = this.authService.isAuthenticated();
+  this.username = localStorage.getItem('username');
 }  
 
   onSidenavClose = () => {

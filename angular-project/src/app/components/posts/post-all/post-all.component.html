@@ -1,18 +1,18 @@
 <main>
 <div class="py-5">
-  <div class="container">
+  <ng-template [ngIf]="allPosts">
+  <div class="container" *ngFor="let post of allPosts">
     <div class="row">
-      <ng-template [ngIf]="postAll">
-      <div class="col-md-6" *ngFor="let post of postAll">
+      <div class="col-md-6">
       <img class="col-md-6 mw-100" style="height: 300px" src="{{post['image']}}" alt=""/>
-        <h1 class="mt-5 mb-2">{{ post['title'] }}</h1>
-        <h3 class="mt-5 mb-2">{{ post['author'] }}</h3>
-          <p class="lead mb-5 text-50">{{ post['content'] }}</p>
+        <h1 class="mt-5 mb-2">{{post['title']}}</h1>
+        <h3 class="mt-5 mb-2"><span>Author: {{post['author']}}</span></h3>
+          <p class="lead mb-5 text-50">{{post['content']}}</p>
         <a class="mb-5" [routerLink]="['/posts/details', post['_id']]" mat-flat-button color="accent" type="button">Details</a>
       </div>
-    </ng-template>
     </div>
   </div>
+</ng-template> 
 </div>  
 </main>
 

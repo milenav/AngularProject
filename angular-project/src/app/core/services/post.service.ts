@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { APP_KEY } from '../../kinvey.tokens';
 import { Post } from 'src/app/components/shared/models/post.model';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PostService {
   private readonly BASE_URL = `https://baas.kinvey.com/appdata/${APP_KEY}`;
-  private readonly ALL_POSTS = `${this.BASE_URL}/posts?query={}&sort={"_kmd.ect": -1}`;
+  private readonly ALL_POSTS = `${this.BASE_URL}/posts`;
   private readonly CREATE_POST = `${this.BASE_URL}/posts`;
 
   constructor(private http: HttpClient) { }

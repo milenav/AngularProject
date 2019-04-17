@@ -4,4 +4,5 @@ export interface Post {
     author: string;
     image: string;
     content: string;
+    _acl: { creator: string };
 }
