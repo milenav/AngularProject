@@ -12,10 +12,10 @@ export class PostService {
   private readonly ALL_POSTS = `${this.BASE_URL}/posts`;
   private readonly CREATE_POST = `${this.BASE_URL}/posts`;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient)  { }
 
-  getAll() {
-    return this.http.get<Post[]>(this.ALL_POSTS);
+  getAll(): Observable<Array<Post>> {
+    return this.http.get<Array<Post>>(this.ALL_POSTS);
   }
 
   createPost(body: Object) {
