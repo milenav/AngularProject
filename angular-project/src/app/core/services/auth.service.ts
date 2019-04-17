@@ -9,9 +9,7 @@ import { APP_KEY, APP_SECRET } from 'src/app/kinvey.tokens';
 export class AuthService {
   private readonly BASE_URL = `https://baas.kinvey.com/user/${APP_KEY}`;
 
-  constructor(
-    private http: HttpClient
-  ) { }
+  constructor(private http: HttpClient) { }
 
   get token() {
     return localStorage.getItem('token');
@@ -36,6 +34,7 @@ export class AuthService {
 
   saveUserInfo(res: Object) {
     localStorage.setItem('username', res['username']);
+    localStorage.setItem('admin', res['username']['admin']);
     localStorage.setItem('token', res['_kmd']['authtoken']);
     localStorage.setItem('userId', res['_id']);
   }
