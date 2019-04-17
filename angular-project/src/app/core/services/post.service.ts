@@ -34,8 +34,4 @@ export class PostService {
     return this.http.delete(this.CREATE_POST + `/${id}`);
   }
 
-  getUserPosts() {
-    return this.http
-      .get<Post[]>(`${this.BASE_URL}/posts?query={"author":"${localStorage.getItem('username')}"}&sort={"_kmd.ect": -1}`);
-  }
 }

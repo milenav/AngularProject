@@ -9,7 +9,7 @@
               <p class="lead mb-5 text-50">{{post['content']}}</p>
             <button class="mb-5 mr-4" mat-raised-button type="button">Back</button>
             <button class="mb-5 mr-4" mat-raised-button color="primary" type="button">Edit</button>
-            <button class="mb-5" mat-raised-button color="warn" type="button">Delete</button>
+            <button class="mb-5" (click)="deletePost(post['_id'])" mat-raised-button color="warn" type="button">Delete</button>
           </div>
         </div>
       </div>
