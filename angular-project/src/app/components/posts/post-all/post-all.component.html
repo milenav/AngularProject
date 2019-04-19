@@ -4,7 +4,7 @@
     <ng-template [ngIf]="allPosts">
     <div class="row">
       <div class="col-md-6" *ngFor="let post of allPosts">
-      <img class="col-md-6 mw-100" style="height: 300px" src="{{post['image']}}" alt=""/>
+      <img class="col-md-6 mw-100" style="height: 300px" [src]="post.image" alt=""/>
         <h1 class="mt-5 mb-2">{{post['title']}}</h1>
         <h4 class="mt-5 mb-2"><span>Author: {{post['author']}}</span></h4>
           <p class="lead mb-5 text-50">{{post['content'].slice(0,350)}} ...</p>

@@ -16,10 +16,9 @@ import { PostCreateComponent } from './components/posts/post-create/post-create.
 import { FooterComponent } from './components/shared/footer/footer.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { PostEditComponent } from './components/posts/post-edit/post-edit.component';
 import { PostAllComponent } from './components/posts/post-all/post-all.component';
 import { TokenInterceptor } from './core/interceptors/token.interceptor';
-
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -32,8 +31,8 @@ import { TokenInterceptor } from './core/interceptors/token.interceptor';
     PostDetailsComponent,
     PostCreateComponent,
     FooterComponent,
-    PostEditComponent,
-    PostAllComponent
+    PostAllComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

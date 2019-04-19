@@ -3,6 +3,7 @@ import { PostService } from 'src/app/core/services/post.service';
 import { Post } from '../../shared/models/post.model';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
+import { AuthService } from 'src/app/core/services/auth.service';
 
 @Component({
   selector: 'app-post-details',
@@ -12,18 +13,21 @@ import { Observable } from 'rxjs';
 export class PostDetailsComponent implements OnInit {
   post: Post;
 
-  constructor(private postService: PostService, private router: Router, private route: ActivatedRoute) { }
+  constructor(
+    private postService: PostService, 
+    private router: Router, 
+    private route: ActivatedRoute,
+    private authService: AuthService,
+    ) { }
 
-  ngOnInit() {
+  ngOnInit() {    
     this.route.params.subscribe(data => {
       let id = data['id'];
       this.postService.getDetails(id).subscribe((data) => {
         this.post = data;
-        console.log(data)
       })
     })
-  }
-  
+  }  
 
   deletePost(id: string) {
     this.postService.deletePost(id)
@@ -32,4 +36,7 @@ export class PostDetailsComponent implements OnInit {
       })
   }
 
+  get isAdmin(): boolean {
+    return this.authService.isAdmin();
+  }
 }

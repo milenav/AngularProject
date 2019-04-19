@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { mergeMap } from 'rxjs/operators';
 
-import { APP_KEY, APP_SECRET, USER_ID, MASTER_SECRET } from 'src/app/kinvey.tokens';
+import { APP_KEY, APP_SECRET, USER_ID, MASTER_SECRET, ADMIN_ID } from 'src/app/kinvey.tokens';
 
 
 @Injectable({
@@ -56,9 +56,16 @@ export class AuthService {
     });
   }
 
-  saveUserInfo(res: Object) {
-    localStorage.setItem('username', res['username']);
-    localStorage.setItem('token', res['_kmd']['authtoken']);
-    localStorage.setItem('userId', res['_id']);
+  saveUserInfo(user: Object) {
+    const isAdmin = user['_kmd']['roles'][0].roleId === ADMIN_ID;
+
+    localStorage.setItem('isAdmin', isAdmin + "");
+    localStorage.setItem('username', user['username']);
+    localStorage.setItem('token', user['_kmd']['authtoken']);
+    localStorage.setItem('userId', user['_id']);
+  }
+
+  isAdmin() {
+    return localStorage.getItem('isAdmin') === "true";
   }
 }
