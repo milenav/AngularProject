@@ -10,21 +10,21 @@ export class TokenInterceptor implements HttpInterceptor {
     constructor(private authService: AuthService) { }
 
     intercept(req: HttpRequest<any>, next: HttpHandler) {
-        if(req.url.endsWith(`/user/${APP_KEY}`) || req.url.endsWith('login')) {
-            req = req.clone({
-                setHeaders: {
-                    'Authorization': `Basic ${btoa(`${APP_KEY}:${APP_SECRET}`)}`,
-                    'Content-Type': 'application/json'
-                }
-            })
-        } else {
-            req = req.clone({
-                setHeaders: {
-                    'Authorization': `Kinvey ${this.authService.token}`
-                }
-            })
+        
+        const headers: { Authorization?: string } = { };
+
+        if (!req.headers.has('Authorization')) {
+    
+          if (this.authService.isAuthenticated()) {
+            headers.Authorization = 'Kinvey ' + this.authService.token;
+          } else {
+            headers.Authorization = 'Basic ' + btoa(APP_KEY + ':' + APP_SECRET);
+          }
         }
-        return next.handle(req)
+    
+        const newReq = req.clone({ setHeaders: headers });
+   
+        return next.handle(newReq)
         .pipe(
             tap((event: HttpEvent<any>) => {
                 if(event instanceof HttpResponse && req.url.endsWith('login')) {

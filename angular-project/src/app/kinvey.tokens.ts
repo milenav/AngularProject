@@ -1,2 +1,5 @@
 export const APP_KEY = 'kid_SkR9FzkcV' 
 export const APP_SECRET = 'c30c6e9a5a2a44018756d7f3805e1fb0' 
+export const MASTER_SECRET = 'd0cddfa7e016451082976ab5a84267f1'
+export const ADMIN_ID = 'a55c57a6-1ccd-40c5-86c1-25fa22ccdc9a'
+export const USER_ID = '85b7322e-d8c2-446c-8fed-09500c3888cb'

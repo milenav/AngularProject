@@ -23,6 +23,7 @@ export class PostDetailsComponent implements OnInit {
       })
     })
   }
+  
 
   deletePost(id: string) {
     this.postService.deletePost(id)
