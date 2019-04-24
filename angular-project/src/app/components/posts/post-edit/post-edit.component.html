@@ -1,0 +1,27 @@
+<div class="example-container py-5">
+  <form [formGroup]="postEditForm" (ngSubmit)="editPost()">
+    <mat-form-field>
+      <input formControlName="title" type="text" matInput placeholder="Edit title">
+      <mat-error *ngIf="postEditForm.get('title').hasError('required')">This field is required!</mat-error>
+      <mat-error *ngIf="postEditForm.get('title').hasError('minlength')">Title must be at least 3 symbols!</mat-error>
+      <mat-error *ngIf="postEditForm.get('title').hasError('maxlength')">Title should not be more 23 symbols!</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input formControlName="author" type="text" matInput placeholder="Edit author">
+      <mat-error *ngIf="postEditForm.get('author').hasError('required')">This field is required!</mat-error>
+      <mat-error *ngIf="postEditForm.get('author').hasError('minlength')">Name author must be at least 3 symbols!</mat-error>
+      <mat-error *ngIf="postEditForm.get('author').hasError('maxlength')">Name author should not be more 23 symbols!</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input formControlName="image" type="text" matInput placeholder="Edit image url">
+      <mat-error *ngIf="postEditForm.get('image').hasError('required')">This field is required!</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <textarea formControlName="content" matInput placeholder="Edit content"></textarea>
+      <mat-error *ngIf="postEditForm.get('content').hasError('required')">This field is required!</mat-error>
+      <mat-error *ngIf="postEditForm.get('content').hasError('minlength')">Content must be at least 200 symbols!</mat-error>
+      <mat-error *ngIf="postEditForm.get('content').hasError('maxlength')">Content should not be more 5000 symbols!</mat-error>
+    </mat-form-field>
+    <button [disabled]="postEditForm.invalid" class="mt-5" mat-flat-button color="accent" type="submit">Edit</button>
+  </form>
+</div>

@@ -19,6 +19,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { PostAllComponent } from './components/posts/post-all/post-all.component';
 import { TokenInterceptor } from './core/interceptors/token.interceptor';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { PostEditComponent } from './components/posts/post-edit/post-edit.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     PostCreateComponent,
     FooterComponent,
     PostAllComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    PostEditComponent
   ],
   imports: [
     BrowserModule,

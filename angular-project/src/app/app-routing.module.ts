@@ -8,6 +8,8 @@ import { LoginComponent } from './components/auth/login/login.component';
 import { PostAllComponent } from './components/posts/post-all/post-all.component';
 import { AuthGuard } from './core/guards/auth.guard';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { SinglePostResolver } from './core/resolvers/post.resolver';
+import { PostEditComponent } from './components/posts/post-edit/post-edit.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: HomeComponent },
@@ -15,7 +17,8 @@ const routes: Routes = [
   { path: 'signup', component: SignupComponent },
   { path: 'login', component: LoginComponent },
   { path: 'posts', component: PostAllComponent, canActivate: [ AuthGuard ] },
-  { path: 'posts/details/:id', component: PostDetailsComponent, canActivate: [ AuthGuard ]  },
+  { path: 'posts/edit/:id', component: PostEditComponent, canActivate: [ AuthGuard ], resolve: { post: SinglePostResolver } },
+  { path: 'posts/details/:id', component: PostDetailsComponent, canActivate: [ AuthGuard ], resolve: { post: SinglePostResolver} },
   { path: 'posts/create', component: PostCreateComponent, canActivate: [ AuthGuard ]  },
   { path: '**', component: NotFoundComponent }
 ];
