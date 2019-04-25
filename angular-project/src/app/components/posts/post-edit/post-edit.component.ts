@@ -17,18 +17,19 @@ export class PostEditComponent implements OnInit {
   constructor(private fb: FormBuilder, private postService: PostService, private router: Router, private route: ActivatedRoute, ) {  }
  
   ngOnInit() {
-    this.postEditForm = this.fb.group({
-      title: [ '', [Validators.required, Validators.minLength(3), Validators.maxLength(23)]],
-      author: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(23)]],
-      content: ['', [Validators.required, Validators.minLength(200), Validators.maxLength(5000)]],
-      image: ['', [Validators.required]]
-    })
     this.route.params.subscribe(data => {
-      const id = data['id'];
-      this.postService.getDetails(id).subscribe(data => {
-        this.post = data['coupostrse'];
+      this.id = data['id'];
+      this.postService.getDetails(this.id).subscribe(data => {
+        this.post = data;
+        this.postEditForm = this.fb.group({
+          title: [this.post.title, [Validators.required, Validators.minLength(3), Validators.maxLength(23)]],
+          author: [this.post.author, [Validators.required, Validators.minLength(3), Validators.maxLength(23)]],
+          content: [this.post.content, [Validators.required, Validators.minLength(200), Validators.maxLength(5000)]],
+          image: [this.post.image, [Validators.required]]
+        });
       })
     })
+
   }
 
 
@@ -43,6 +44,7 @@ export class PostEditComponent implements OnInit {
     this.postService.editPost(valueForm, id).subscribe((data) => {
       this.router.navigate(['/posts']);
     })
+
   }
 
 }

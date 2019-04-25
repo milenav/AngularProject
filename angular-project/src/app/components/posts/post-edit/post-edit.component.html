@@ -1,4 +1,4 @@
-<div class="example-container py-5">
+<div class="example-container py-5" *ngIf="postEditForm">
   <form [formGroup]="postEditForm" (ngSubmit)="editPost()">
     <mat-form-field>
       <input formControlName="title" type="text" matInput placeholder="Edit title">
@@ -22,6 +22,6 @@
       <mat-error *ngIf="postEditForm.get('content').hasError('minlength')">Content must be at least 200 symbols!</mat-error>
       <mat-error *ngIf="postEditForm.get('content').hasError('maxlength')">Content should not be more 5000 symbols!</mat-error>
     </mat-form-field>
-    <button [disabled]="postEditForm.invalid" class="mt-5" mat-flat-button color="accent" type="submit">Edit</button>
+    <button [disabled]="postEditForm.invalid" class="mt-5" mat-flat-button color="accent" (click)="editButton(post._id)" type="submit">Edit</button>
   </form>
 </div>
