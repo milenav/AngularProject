@@ -8,7 +8,7 @@
             <h4 class="mt-5 mb-2"><span>Author: {{post['author']}}</span></h4>
               <p class="lead mb-5 text-50">{{post['content']}}</p>
             <button class="mb-5 mr-4" routerLink="/posts" mat-raised-button type="button">Back</button>
-            <button class="mb-5 mr-4" [routerLink]="['/posts', 'edit', post._id]" (click)="editPost(post._id)" mat-raised-button color="primary" type="button" *ngIf="isAdmin">Edit</button>
+            <button class="mb-5 mr-4" [routerLink]="['/posts', 'edit', post._id]" mat-raised-button color="primary" type="button" *ngIf="isAdmin">Edit</button>
             <button class="mb-5" (click)="deletePost(post['_id'])" mat-raised-button color="warn" type="button" *ngIf="isAdmin">Delete</button>
           </div>
         </div>
